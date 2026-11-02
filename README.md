@@ -62,15 +62,13 @@ API coverage: Draft privacy, author ownership, publication, post updates/deletio
 
 The browser flows were also exercised at 1440px, 390px, and 320px, with no JavaScript errors or horizontal overflow. Screenshots are from those local checks. Automated database tests use SQLite; PostgreSQL concurrency has not been load-tested.
 
-## Publish as a separate repository
+## Repository
 
-Suggested repository: `Aryan-17159/task-4-minimal-blog`. From this directory, after signing into GitHub CLI with an account allowed to create repositories:
+[View this project on GitHub](https://github.com/Aryan-17159/-task-4-minimal-blog).
 
 ```sh
-git init -b main
-git add .
-git commit -m "Build minimal journal application"
-gh repo create Aryan-17159/task-4-minimal-blog --public --source=. --remote=origin --push
+git clone https://github.com/Aryan-17159/-task-4-minimal-blog.git
+cd -- -task-4-minimal-blog
 ```
 
-If this directory already has a Git history, skip the initialization and commit steps. Never commit `.env`, runtime databases, or credentials.
+Follow the setup instructions above. Never commit `.env`, runtime databases, or credentials.
