@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Notes · A writing space</title>
+    <meta
+      name="description"
+      content="A simple place to write, read and share a thought."
+    />
+    <link rel="stylesheet" href="/static/base.css" />
+    <link rel="stylesheet" href="/static/site.css" />
+  </head>
+  <body>
+    <div class="journal-shell">
+      <header class="page-header">
+        <a class="brand" href="/">notes</a>
+        <nav aria-label="Journal">
+          <a href="/" class="nav-active">Journal</a
+          ><a href="/write" id="write-link">Write</a
+          ><button id="account-link" class="text-button">Sign in</button>
+        </nav>
+      </header>
+      <main>
+        <section class="journal-intro">
+          <h1>Recent writing</h1>
+          <p>Writing about design, development, and the everyday.</p>
+        </section>
+        <div class="journal-layout">
+          <section>
+            <div class="feed-tools">
+              <div class="feed-tabs">
+                <button data-topic="All" class="active">All writing</button
+                ><button data-topic="Design">Design</button
+                ><button data-topic="Development">Development</button
+                ><button data-topic="Everyday">Everyday</button>
+              </div>
+              <label class="search-box"
+                ><span class="sr">Search articles</span
+                ><input type="search" id="search" placeholder="Search"
+              /></label>
+            </div>
+            <div id="feed" aria-live="polite">
+              <p class="loading">Loading articles…</p>
+            </div>
+          </section>
+          <aside class="journal-about">
+            <span class="aside-label">About this space</span>
+            <p>
+              A small place to share what you’re working on, something you’ve
+              learned, or a thought worth keeping.
+            </p>
+            <a href="/write" class="button" id="aside-write">Write a note</a>
+            <div class="aside-divider"></div>
+            <span class="aside-label">In the journal</span
+            ><span id="article-count" class="aside-count">—</span
+            ><span class="aside-caption">Published articles</span>
+            <div class="aside-divider"></div>
+            <p class="demo-note">
+              The initial entries are sample writing. Create an account to add
+              your own.
+            </p>
+          </aside>
+        </div>
+      </main>
+      <footer>
+        <span>notes · A simple writing space</span
+        ><span>Design · Development · Everyday</span>
+      </footer>
+    </div>
+    <script src="/static/common.js"></script>
+    <script src="/static/nav.js"></script>
+    <script src="/static/feed.js"></script>
+  </body>
+</html>

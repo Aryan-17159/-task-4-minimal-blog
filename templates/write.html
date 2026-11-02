@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Write · Notes</title>
+    <link rel="stylesheet" href="/static/base.css" />
+    <link rel="stylesheet" href="/static/site.css" />
+  </head>
+  <body>
+    <div class="journal-shell">
+      <header class="page-header">
+        <a class="brand" href="/">notes</a>
+        <nav aria-label="Journal">
+          <a href="/">Journal</a
+          ><a href="/write" class="nav-active" id="write-link">Write</a
+          ><button id="account-link" class="text-button">Sign in</button>
+        </nav>
+      </header>
+      <main class="writing-layout">
+        <section>
+          <div class="writing-heading">
+            <div>
+              <span class="label" id="editor-label">New article</span>
+              <h1>Your writing space.</h1>
+            </div>
+            <button class="text-button" id="new-article">New article</button>
+          </div>
+          <form id="post-form">
+            <label
+              >Title<input
+                name="title"
+                id="title"
+                required
+                maxlength="140"
+                placeholder="Give your article a title" /></label
+            ><label
+              >Topic<select name="topic">
+                <option>General</option>
+                <option>Design</option>
+                <option>Development</option>
+                <option>Everyday</option>
+              </select></label
+            ><label
+              >Article<textarea
+                name="body"
+                id="body"
+                required
+                maxlength="30000"
+                rows="15"
+                placeholder="Start writing here…"
+              ></textarea>
+            </label>
+            <div class="writing-meta">
+              <span id="word-count">0 words</span
+              ><span id="reading-time">1 min read</span>
+            </div>
+            <p id="editor-message" role="status"></p>
+            <div class="editor-buttons">
+              <button class="button" type="submit" name="intent" value="draft">
+                Save draft</button
+              ><button
+                class="button primary"
+                type="submit"
+                name="intent"
+                value="publish"
+              >
+                Publish article
+              </button>
+            </div>
+          </form>
+        </section>
+        <aside class="writing-sidebar">
+          <h2>Your articles</h2>
+          <p>Drafts are only visible to you.</p>
+          <div id="my-posts"></div>
+        </aside>
+      </main>
+      <footer><a href="/">notes</a><span>Write at your own pace.</span></footer>
+    </div>
+    <script src="/static/common.js"></script>
+    <script src="/static/nav.js"></script>
+    <script src="/static/write.js"></script>
+  </body>
+</html>

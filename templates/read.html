@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Read · Notes</title>
+    <link rel="stylesheet" href="/static/base.css" />
+    <link rel="stylesheet" href="/static/site.css" />
+  </head>
+  <body data-post="{{post_id}}">
+    <div class="journal-shell">
+      <header class="page-header">
+        <a class="brand" href="/">notes</a>
+        <nav aria-label="Journal">
+          <a href="/">Journal</a><a href="/write" id="write-link">Write</a
+          ><button id="account-link" class="text-button">Sign in</button>
+        </nav>
+      </header>
+      <main class="reader">
+        <a href="/" class="back-link">← All writing</a>
+        <article id="article"><p class="loading">Opening article…</p></article>
+        <div id="owner-actions"></div>
+        <section class="comments">
+          <div class="comments-head">
+            <h2>Conversation</h2>
+            <span id="comment-count"></span>
+          </div>
+          <div id="comments"></div>
+          <div id="comment-form-container"></div>
+        </section>
+      </main>
+      <footer><a href="/">notes</a><a href="/">Back to journal</a></footer>
+    </div>
+    <script src="/static/common.js"></script>
+    <script src="/static/nav.js"></script>
+    <script src="/static/read.js"></script>
+  </body>
+</html>

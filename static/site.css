@@ -1,0 +1,590 @@
+body {
+  background: #fdfdfb;
+}
+.journal-shell {
+  max-width: 1100px;
+  padding: 0 45px;
+  margin: auto;
+}
+.page-header {
+  height: 100px;
+  border-color: #eeefe9;
+}
+.brand {
+  font:
+    27px Georgia,
+    serif;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: #3e3e3c;
+}
+.page-header nav {
+  font-size: 11px;
+  gap: 28px;
+}
+.page-header nav a {
+  color: #757573;
+}
+.page-header .nav-active {
+  color: #555553;
+}
+.page-header .text-button {
+  font-size: 11px;
+  color: #757573;
+}
+.journal-intro {
+  padding: 65px 0 50px;
+}
+.journal-intro h1 {
+  font:
+    32px/1.3 Georgia,
+    serif;
+  letter-spacing: -0.65px;
+  color: #4c4c4a;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+.journal-intro p {
+  font-size: 12px;
+  color: #757573;
+  margin-bottom: 0;
+}
+.journal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 205px;
+  gap: 75px;
+}
+.feed-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #e6ebdc;
+  padding-bottom: 15px;
+}
+.feed-tabs {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.feed-tabs button {
+  font-size: 10px;
+  padding: 6px 0;
+  color: #757573;
+  border-bottom: 1px solid transparent;
+}
+.feed-tabs .active {
+  color: #545452;
+  border-color: #8ca16e;
+}
+.search-box {
+  margin: 0;
+}
+.search-box input {
+  border: 0;
+  background: transparent;
+  margin: 0;
+  padding: 6px 0;
+  font-size: 10px;
+  max-width: 80px;
+  color: #757573;
+}
+.article-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 25px;
+  padding: 30px 0;
+  border-bottom: 1px solid #e9eedf;
+}
+.article-date {
+  font-size: 10px;
+  color: #757573;
+  line-height: 1.8;
+  padding-top: 5px;
+}
+.article-date span {
+  display: block;
+  color: #757573;
+  font-size: 9px;
+}
+.article-row h2 {
+  font:
+    23px/1.3 Georgia,
+    serif;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  color: #4f4f4d;
+  margin-bottom: 12px;
+}
+.article-row p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #757573;
+  margin: 0 0 17px;
+}
+.article-meta {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 9px;
+  color: #757573;
+}
+.article-meta .topic {
+  color: #757573;
+}
+.article-row:hover h2 {
+  color: #242422;
+}
+.journal-about {
+  padding-top: 4px;
+}
+.aside-label {
+  font-size: 10px;
+  color: #757573;
+  display: block;
+  margin-bottom: 18px;
+}
+.journal-about p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #757573;
+}
+.journal-about .button {
+  font-size: 10px;
+  margin-top: 8px;
+  padding: 8px 13px;
+  border-color: #e0e8d4;
+  color: #757573;
+  background: transparent;
+}
+.aside-divider {
+  height: 1px;
+  background: #e5edda;
+  margin: 30px 0;
+}
+.aside-count {
+  font-size: 23px;
+  display: block;
+  color: #757573;
+  font-weight: 400;
+  margin: 0 0 5px;
+}
+.aside-caption {
+  font-size: 9px;
+  color: #757573;
+}
+.journal-about .demo-note {
+  font-size: 10px;
+  color: #757573;
+  line-height: 1.9;
+}
+.journal-shell > footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 75px;
+  border-top: 1px solid #e8edde;
+  padding: 28px 0 35px;
+  font-size: 9px;
+  color: #757573;
+  gap: 20px;
+}
+.reader {
+  max-width: 640px;
+  margin: 45px auto 0;
+}
+.back-link {
+  font-size: 11px;
+  color: #757573;
+  display: inline-block;
+  margin-bottom: 45px;
+}
+.reader .article-topic {
+  font-size: 10px;
+  color: #757573;
+  margin-bottom: 18px;
+}
+.reader h1 {
+  font:
+    38px/1.18 Georgia,
+    serif;
+  letter-spacing: -0.6px;
+  color: #4e4e4c;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.reader .byline {
+  font-size: 10px;
+  color: #757573;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e8eedf;
+}
+.article-body {
+  font:
+    17px/1.95 Georgia,
+    serif;
+  color: #71716f;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin-top: 32px;
+}
+.reader .sample-label {
+  font-size: 10px;
+  color: #757573;
+}
+.reader #owner-actions {
+  display: flex;
+  gap: 16px;
+  padding: 25px 0;
+}
+.comments {
+  margin-top: 45px;
+  border-top: 1px solid #e1ead4;
+  padding-top: 30px;
+}
+.comments-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.comments-head h2 {
+  font:
+    20px Georgia,
+    serif;
+  color: #666664;
+  margin: 0;
+}
+.comments-head > span {
+  font-size: 10px;
+  color: #757573;
+}
+.comment {
+  border-bottom: 1px solid #e6edda;
+  padding: 17px 0;
+}
+.comment > header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 11px;
+  color: #757573;
+}
+.comment > header time {
+  font-size: 9px;
+  color: #757573;
+}
+.comment > header button {
+  margin-left: auto;
+  font-size: 9px;
+  color: #757573;
+}
+.comment > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #757573;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 12px 0 0;
+}
+.comments form {
+  margin-top: 25px;
+}
+.comments textarea {
+  font-size: 12px;
+  background: white;
+  border-color: #e1ead4;
+}
+.comments .button {
+  font-size: 11px;
+}
+.comments .signin-prompt {
+  font-size: 12px;
+  color: #757573;
+  padding: 25px 0;
+}
+.writing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 65px;
+  padding-top: 50px;
+}
+.writing-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.writing-heading h1 {
+  font:
+    28px Georgia,
+    serif;
+  letter-spacing: -0.4px;
+  font-weight: 400;
+  margin: 12px 0 0;
+  color: #60605e;
+}
+.writing-heading .label {
+  font-size: 10px;
+  color: #757573;
+}
+.writing-heading .text-button {
+  font-size: 10px;
+}
+.writing-layout label {
+  font-size: 11px;
+  color: #757573;
+}
+.writing-layout input,
+.writing-layout select,
+.writing-layout textarea {
+  font-size: 13px;
+  border-color: #e2ebd6;
+  color: #5b5b59;
+}
+.writing-layout select {
+  max-width: 190px;
+}
+.writing-layout textarea {
+  font:
+    16px/1.9 Georgia,
+    serif;
+  min-height: 340px;
+}
+.writing-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #757573;
+  margin-top: -6px;
+}
+.editor-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e5eddc;
+  margin-top: 22px;
+  padding-top: 20px;
+}
+.editor-buttons .button {
+  font-size: 11px;
+}
+.writing-sidebar {
+  padding: 12px 0 0 25px;
+  border-left: 1px solid #e7efdc;
+}
+.writing-sidebar h2 {
+  font-size: 13px;
+  color: #6b6b69;
+  margin-bottom: 10px;
+}
+.writing-sidebar > p {
+  font-size: 10px;
+  color: #757573;
+}
+.my-post {
+  border-bottom: 1px solid #e6efda;
+  padding: 20px 0;
+}
+.my-post h3 {
+  font:
+    17px/1.4 Georgia,
+    serif;
+  font-weight: 400;
+  color: #757573;
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
+.my-post .row {
+  justify-content: space-between;
+  gap: 8px;
+}
+.my-post .text-button,
+.my-post a {
+  font-size: 9px;
+  color: #757573;
+}
+.my-post .badge {
+  font-size: 8px;
+}
+.my-post-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.editor-buttons .primary,
+.comments .primary {
+  background: #68795a;
+  border-color: #68795a;
+}
+.empty p {
+  font-size: 12px;
+}
+.empty {
+  padding: 45px 0;
+}
+@media (max-width: 950px) {
+  .journal-shell {
+    padding: 0 30px;
+  }
+  .journal-layout {
+    gap: 45px;
+    grid-template-columns: minmax(0, 1fr) 180px;
+  }
+  .feed-tabs {
+    gap: 15px;
+  }
+  .article-row {
+    grid-template-columns: 55px 1fr;
+    gap: 20px;
+  }
+  .article-row h2 {
+    font-size: 21px;
+  }
+  .writing-layout {
+    gap: 35px;
+    grid-template-columns: minmax(0, 1fr) 190px;
+  }
+}
+@media (max-width: 650px) {
+  .journal-shell {
+    padding: 0 24px;
+  }
+  .page-header {
+    height: 80px;
+    flex-wrap: nowrap;
+    padding: 0;
+  }
+  .page-header nav {
+    gap: 20px;
+  }
+  .brand {
+    font-size: 25px;
+  }
+  .journal-intro {
+    padding: 40px 0 35px;
+  }
+  .journal-intro h1 {
+    font-size: 27px;
+  }
+  .journal-intro p {
+    font-size: 11px;
+    line-height: 1.8;
+    max-width: 260px;
+  }
+  .journal-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .journal-about {
+    display: none;
+  }
+  .feed-tools {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .feed-tabs {
+    gap: 20px;
+    width: 100%;
+  }
+  .feed-tabs button {
+    font-size: 10px;
+  }
+  .search-box {
+    width: 100%;
+  }
+  .search-box input {
+    max-width: 100%;
+    width: 100%;
+    font-size: 11px;
+  }
+  .article-row {
+    padding: 25px 0;
+    grid-template-columns: 48px 1fr;
+    gap: 15px;
+  }
+  .article-date {
+    font-size: 9px;
+  }
+  .article-row h2 {
+    font-size: 20px;
+  }
+  .article-row p {
+    font-size: 11px;
+    line-height: 1.85;
+  }
+  .article-meta {
+    font-size: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .journal-shell > footer {
+    margin-top: 45px;
+    font-size: 8px;
+  }
+  .reader {
+    margin-top: 30px;
+  }
+  .back-link {
+    margin-bottom: 32px;
+    font-size: 10px;
+  }
+  .reader h1 {
+    font-size: 31px;
+  }
+  .article-body {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+  .comments {
+    margin-top: 30px;
+  }
+  .writing-layout {
+    display: block;
+    padding-top: 35px;
+  }
+  .writing-heading h1 {
+    font-size: 26px;
+  }
+  .writing-layout textarea {
+    font-size: 16px;
+  }
+  .writing-sidebar {
+    border: 0;
+    border-top: 1px solid #e0ead1;
+    margin-top: 40px;
+    padding: 25px 0;
+  }
+  .my-post h3 {
+    font-size: 18px;
+  }
+  .writing-sidebar h2 {
+    font-size: 14px;
+  }
+  .comments .signin-prompt {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 651px) {
+  .article-row p {
+    font-size: 13px;
+  }
+  .journal-intro p {
+    font-size: 13px;
+  }
+  .journal-about p {
+    font-size: 12px;
+  }
+  .article-meta {
+    font-size: 10px;
+  }
+  .feed-tabs button {
+    font-size: 11px;
+  }
+  .page-header nav a,
+  .page-header .text-button {
+    font-size: 12px;
+  }
+}
