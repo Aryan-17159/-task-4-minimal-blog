@@ -4,7 +4,7 @@ async function load() {
   try {
     const data = await api("/posts/" + postId);
     post = data.post;
-    document.title = post.title + " · Notes";
+    document.title = post.title + " · The Outpost";
     $("#article").innerHTML =
       `<p class="article-topic">${esc(post.topic)}${post.published ? "" : " · Private draft"}</p><h1>${esc(post.title)}</h1><p class="byline">${esc(post.author)} · ${dateLabel(post.created)} · ${Math.max(1, Math.ceil(post.body.split(/\s+/).length / 200))} min read</p><div class="article-body"></div>`;
     $(".article-body").textContent = post.body;

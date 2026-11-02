@@ -1,12 +1,14 @@
-# Notes — Minimal Blog
+# The Outpost — Western Journal
 
-A text-focused publication with topic filters, a narrow reading column, author-only drafts, an editor, and comments.
+A Western editorial blog inspired by the first supplied reference: muted olive, pale yellow lettering, textured parchment, and ornate display type. It includes topic filters, a reading view, author-only drafts, a writing editor, and comments.
 
-Built from new source for task 4. The interface uses a restrained palette, fine dividers, system fonts, native dialogs, and responsive layouts. Each project is self-contained.
+[Reference interpretation, typography, and asset sources](docs/DESIGN.md). Fonts and photographs are bundled locally.
 
 ![Desktop screenshot](docs/desktop.png)
 
 [View mobile screenshot](docs/mobile.png)
+
+[Reader](docs/reader.png) · [Editor](docs/editor.png) · [Mobile reader](docs/reader-mobile.png)
 
 ## Run locally
 
@@ -58,7 +60,7 @@ python -m pytest -q
 
 API coverage: Draft privacy, author ownership, publication, post updates/deletion, comment permissions, and authentication.
 
-The browser flows were also exercised at 1440px and 390px, with no JavaScript errors or horizontal overflow. Screenshots are from those local checks. Automated database tests use SQLite; PostgreSQL concurrency has not been load-tested.
+The browser flows were also exercised at 1440px, 390px, and 320px, with no JavaScript errors or horizontal overflow. Screenshots are from those local checks. Automated database tests use SQLite; PostgreSQL concurrency has not been load-tested.
 
 ## Publish as a separate repository
 

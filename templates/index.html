@@ -3,69 +3,117 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Notes · A writing space</title>
+    <title>The Outpost · An independent journal</title>
     <meta
       name="description"
-      content="A simple place to write, read and share a thought."
+      content="An open journal for stories, ideas, and observations. Read, write, and join the conversation."
+    />
+    <link
+      rel="preload"
+      href="/static/fonts/rye.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
     />
     <link rel="stylesheet" href="/static/base.css" />
     <link rel="stylesheet" href="/static/site.css" />
   </head>
-  <body>
+  <body class="journal-home">
+    <a class="skip-link" href="#latest">Skip to articles</a>
     <div class="journal-shell">
       <header class="page-header">
-        <a class="brand" href="/">notes</a>
+        <a class="brand" href="/"
+          >The Outpost<span>AN INDEPENDENT JOURNAL</span></a
+        >
         <nav aria-label="Journal">
-          <a href="/" class="nav-active">Journal</a
-          ><a href="/write" id="write-link">Write</a
+          <a href="#latest" class="nav-active">The journal</a
+          ><a href="/write" id="write-link">Write a story</a
           ><button id="account-link" class="text-button">Sign in</button>
         </nav>
       </header>
       <main>
-        <section class="journal-intro">
-          <h1>Recent writing</h1>
-          <p>Writing about design, development, and the everyday.</p>
+        <section class="journal-intro" aria-labelledby="masthead-title">
+          <img
+            class="hero-photo"
+            src="/static/images/rider.jpg"
+            alt="A lone rider crossing the open landscape of Monument Valley"
+            fetchpriority="high"
+          />
+          <div class="hero-content">
+            <p class="eyebrow">For curious minds & wandering souls</p>
+            <h1 id="masthead-title">The Outpost</h1>
+            <p class="hero-description">
+              Stories, ideas, and observations.<br />A place to stop. A reason
+              to stay.
+            </p>
+            <a class="hero-link" href="#latest"
+              >Explore the journal <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="hero-bottom">
+            <span>DESIGN / DEVELOPMENT / EVERYDAY</span
+            ><span>READ SOMETHING NEW</span>
+          </div>
         </section>
-        <div class="journal-layout">
-          <section>
-            <div class="feed-tools">
-              <div class="feed-tabs">
-                <button data-topic="All" class="active">All writing</button
-                ><button data-topic="Design">Design</button
-                ><button data-topic="Development">Development</button
-                ><button data-topic="Everyday">Everyday</button>
+        <section class="journal-entries" id="latest">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Dispatches from the journal</p>
+              <h2>The latest stories</h2>
+            </div>
+            <span class="section-mark" aria-hidden="true">✦</span>
+          </div>
+          <div class="journal-layout">
+            <section aria-label="Articles">
+              <div class="feed-tools">
+                <div class="feed-tabs" aria-label="Filter by topic">
+                  <button data-topic="All" class="active" aria-pressed="true">
+                    All writing</button
+                  ><button data-topic="Design" aria-pressed="false">
+                    Design</button
+                  ><button data-topic="Development" aria-pressed="false">
+                    Development</button
+                  ><button data-topic="Everyday" aria-pressed="false">
+                    Everyday
+                  </button>
+                </div>
+                <label class="search-box"
+                  ><span class="sr">Search articles</span
+                  ><input type="search" id="search" placeholder="Find a story…"
+                /></label>
               </div>
-              <label class="search-box"
-                ><span class="sr">Search articles</span
-                ><input type="search" id="search" placeholder="Search"
-              /></label>
-            </div>
-            <div id="feed" aria-live="polite">
-              <p class="loading">Loading articles…</p>
-            </div>
-          </section>
-          <aside class="journal-about">
-            <span class="aside-label">About this space</span>
-            <p>
-              A small place to share what you’re working on, something you’ve
-              learned, or a thought worth keeping.
-            </p>
-            <a href="/write" class="button" id="aside-write">Write a note</a>
-            <div class="aside-divider"></div>
-            <span class="aside-label">In the journal</span
-            ><span id="article-count" class="aside-count">—</span
-            ><span class="aside-caption">Published articles</span>
-            <div class="aside-divider"></div>
-            <p class="demo-note">
-              The initial entries are sample writing. Create an account to add
-              your own.
-            </p>
-          </aside>
-        </div>
+              <div id="feed" aria-live="polite">
+                <p class="loading">Opening the journal…</p>
+              </div>
+            </section>
+            <aside class="journal-about">
+              <div class="aside-ornament" aria-hidden="true">✦</div>
+              <span class="aside-label">A note from the journal</span>
+              <h2>There’s a story <br />in all of us.</h2>
+              <p>
+                Something you’ve made. A lesson from the road. An idea that
+                won’t leave you alone. There’s room for it here.
+              </p>
+              <a href="/write" class="button" id="aside-write"
+                >Write your story <span aria-hidden="true">→</span></a
+              >
+              <div class="aside-divider"></div>
+              <div class="journal-count">
+                <span id="article-count" class="aside-count">—</span
+                ><span class="aside-caption">stories in<br />the journal</span>
+              </div>
+              <p class="demo-note">
+                The first entries are sample writing. Add your own to the
+                collection.
+              </p>
+            </aside>
+          </div>
+        </section>
       </main>
       <footer>
-        <span>notes · A simple writing space</span
-        ><span>Design · Development · Everyday</span>
+        <a class="footer-brand" href="/">The Outpost</a
+        ><span>An open journal. A shared conversation.</span
+        ><a href="#masthead-title">Back to the top ↑</a>
       </footer>
     </div>
     <script src="/static/common.js"></script>

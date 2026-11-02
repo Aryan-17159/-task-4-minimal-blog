@@ -1,288 +1,561 @@
+@font-face {
+  font-family: Rye;
+  src: url("/static/fonts/rye.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --ink: #302f23;
+  --muted: #686451;
+  --paper: #e8e2cb;
+  --paper-light: #f2ecd9;
+  --line: #b7b097;
+  --olive: #32342a;
+  --gold: #f1e6a5;
+  --display: Rye, Georgia, serif;
+}
 body {
-  background: #fdfdfb;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23000' filter='url(%23n)' opacity='.6' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+::selection {
+  background: #c5b66f;
+  color: #24251f;
+}
+p,
+.muted,
+.small,
+.label {
+  color: var(--muted);
 }
 .journal-shell {
-  max-width: 1100px;
-  padding: 0 45px;
+  max-width: 1440px;
   margin: auto;
 }
 .page-header {
-  height: 100px;
-  border-color: #eeefe9;
+  padding: 0 64px;
+  height: 110px;
+  border-bottom: 1px solid #666651;
+  background: var(--olive);
+  color: var(--gold);
 }
 .brand {
+  font: 26px/1.2 var(--display);
+  letter-spacing: -0.6px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.brand span {
+  display: block;
   font:
-    27px Georgia,
-    serif;
-  font-weight: 400;
-  letter-spacing: -1px;
-  color: #3e3e3c;
+    9px/1.5 "Courier New",
+    monospace;
+  letter-spacing: 1.7px;
+  margin-top: 10px;
+  color: #d2cdb1;
 }
 .page-header nav {
-  font-size: 11px;
-  gap: 28px;
-}
-.page-header nav a {
-  color: #757573;
-}
-.page-header .nav-active {
-  color: #555553;
+  color: #e6dfbc;
+  gap: 32px;
+  font-size: 12px;
 }
 .page-header .text-button {
-  font-size: 11px;
-  color: #757573;
+  color: #e6dfbc;
+  font-size: 12px;
+  padding: 10px 0;
+}
+.page-header nav a {
+  padding: 10px 0;
+}
+.page-header nav a:hover,
+.page-header .text-button:hover {
+  color: #fff3b6;
+}
+.skip-link {
+  position: fixed;
+  left: 20px;
+  top: -80px;
+  background: var(--paper-light);
+  color: var(--ink);
+  padding: 12px;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 10px;
 }
 .journal-intro {
-  padding: 65px 0 50px;
+  height: 550px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #3d3c2e;
+  color: var(--gold);
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 68%;
+  filter: sepia(0.9) saturate(0.55) brightness(0.58);
+  z-index: -2;
+}
+.journal-intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #25291de6 0%,
+    #2e302282 45%,
+    #25271b05 100%
+  );
+  z-index: -1;
+}
+.hero-content {
+  padding: 78px 64px 0;
+  position: relative;
+  max-width: 1100px;
+}
+.eyebrow {
+  font:
+    10px/1.6 "Courier New",
+    monospace;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.hero-content .eyebrow {
+  color: #e6dbac;
+  margin: 0 0 22px;
 }
 .journal-intro h1 {
-  font:
-    32px/1.3 Georgia,
-    serif;
-  letter-spacing: -0.65px;
-  color: #4c4c4a;
+  font: clamp(58px, 8.5vw, 122px)/1.15 var(--display);
   font-weight: 400;
-  margin-bottom: 14px;
+  letter-spacing: -3px;
+  margin: 0 0 25px;
+  color: var(--gold);
 }
-.journal-intro p {
+.hero-description {
+  font:
+    20px/1.6 Georgia,
+    serif;
+  color: #ece4c4;
+  margin-bottom: 28px;
+}
+.hero-link {
+  display: inline-flex;
+  gap: 40px;
+  align-items: center;
+  color: var(--gold);
+  border-bottom: 1px solid #b9b58a;
   font-size: 12px;
-  color: #757573;
-  margin-bottom: 0;
+  padding: 0 0 10px;
+}
+.hero-link span {
+  font-size: 20px;
+}
+.hero-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 64px;
+  right: 64px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font:
+    9px/1.4 "Courier New",
+    monospace;
+  letter-spacing: 1.3px;
+  color: #e3ddba;
+}
+.journal-entries {
+  padding: 64px 64px 0;
+  scroll-margin-top: 25px;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 3px double var(--line);
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+}
+.section-heading .eyebrow {
+  margin-bottom: 9px;
+}
+.section-heading h2 {
+  font: 32px/1.3 var(--display);
+  letter-spacing: -0.7px;
+  margin: 0;
+}
+.section-mark {
+  font: 40px Georgia;
+  color: #77764c;
 }
 .journal-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 205px;
-  gap: 75px;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 64px;
 }
 .feed-tools {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  border-bottom: 1px solid #e6ebdc;
+  border-bottom: 1px solid var(--line);
   padding-bottom: 15px;
 }
 .feed-tabs {
   display: flex;
-  gap: 22px;
+  gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .feed-tabs button {
-  font-size: 10px;
-  padding: 6px 0;
-  color: #757573;
+  font-size: 11px;
+  color: var(--muted);
+  padding: 8px 0;
   border-bottom: 1px solid transparent;
 }
 .feed-tabs .active {
-  color: #545452;
-  border-color: #8ca16e;
+  color: var(--ink);
+  border-color: var(--ink);
 }
 .search-box {
   margin: 0;
 }
 .search-box input {
   border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
   background: transparent;
+  width: 125px;
   margin: 0;
-  padding: 6px 0;
-  font-size: 10px;
-  max-width: 80px;
-  color: #757573;
+  padding: 8px 0;
+  font-size: 11px;
 }
 .article-row {
   display: grid;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 60px minmax(0, 1fr);
   gap: 25px;
-  padding: 30px 0;
-  border-bottom: 1px solid #e9eedf;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
 }
 .article-date {
-  font-size: 10px;
-  color: #757573;
-  line-height: 1.8;
+  font:
+    11px/1.8 "Courier New",
+    monospace;
+  color: var(--muted);
   padding-top: 5px;
 }
 .article-date span {
   display: block;
-  color: #757573;
-  font-size: 9px;
+  font-size: 10px;
 }
 .article-row h2 {
   font:
-    23px/1.3 Georgia,
+    29px/1.2 Georgia,
     serif;
-  font-weight: 400;
-  letter-spacing: -0.3px;
-  color: #4f4f4d;
-  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  margin: 0 0 12px;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.article-row:hover h2 {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
 }
 .article-row p {
-  font-size: 12px;
-  line-height: 1.9;
-  color: #757573;
+  font:
+    15px/1.8 Georgia,
+    serif;
+  color: var(--muted);
   margin: 0 0 17px;
+  overflow-wrap: anywhere;
 }
 .article-meta {
   display: flex;
-  gap: 9px;
   align-items: center;
-  font-size: 9px;
-  color: #757573;
-}
-.article-meta .topic {
-  color: #757573;
-}
-.article-row:hover h2 {
-  color: #242422;
+  flex-wrap: wrap;
+  gap: 9px;
+  font:
+    10px/1.7 "Courier New",
+    monospace;
+  color: var(--muted);
 }
 .journal-about {
-  padding-top: 4px;
+  border: 1px solid var(--line);
+  padding: 25px 23px;
+  align-self: start;
+  text-align: center;
+  background: #ded8bc;
+}
+.aside-ornament {
+  font: 27px Georgia;
+  color: #767448;
+  margin-bottom: 20px;
 }
 .aside-label {
-  font-size: 10px;
-  color: #757573;
+  font:
+    9px/1.5 "Courier New",
+    monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   display: block;
   margin-bottom: 18px;
 }
+.journal-about h2 {
+  font:
+    27px/1.2 Georgia,
+    serif;
+  margin-bottom: 18px;
+}
 .journal-about p {
-  font-size: 11px;
-  line-height: 1.9;
-  color: #757573;
+  font:
+    14px/1.8 Georgia,
+    serif;
+  margin: 0 0 23px;
 }
 .journal-about .button {
-  font-size: 10px;
-  margin-top: 8px;
-  padding: 8px 13px;
-  border-color: #e0e8d4;
-  color: #757573;
-  background: transparent;
+  width: 100%;
+  gap: 18px;
+  font-size: 11px;
 }
 .aside-divider {
   height: 1px;
-  background: #e5edda;
-  margin: 30px 0;
+  background: var(--line);
+  margin: 28px 0 23px;
+}
+.journal-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 .aside-count {
-  font-size: 23px;
-  display: block;
-  color: #757573;
-  font-weight: 400;
-  margin: 0 0 5px;
+  font: 44px/1 var(--display);
 }
 .aside-caption {
-  font-size: 9px;
-  color: #757573;
+  font:
+    10px/1.6 "Courier New",
+    monospace;
+  text-align: left;
+  color: var(--muted);
 }
 .journal-about .demo-note {
-  font-size: 10px;
-  color: #757573;
-  line-height: 1.9;
+  font:
+    10px/1.7 "Courier New",
+    monospace;
+  margin: 0;
+  color: var(--muted);
 }
 .journal-shell > footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 75px;
-  border-top: 1px solid #e8edde;
-  padding: 28px 0 35px;
-  font-size: 9px;
-  color: #757573;
-  gap: 20px;
+  gap: 25px;
+  padding: 30px 64px;
+  margin-top: 70px;
+  border-top: 3px double var(--line);
+  font-size: 10px;
+  color: var(--muted);
+}
+.footer-brand {
+  font: 22px var(--display);
+  color: var(--ink);
+}
+.button {
+  background: transparent;
+  border-color: #918e72;
+  border-radius: 1px;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 11px 17px;
+}
+.button:hover {
+  background: #ded7ba;
+}
+.button.primary {
+  background: var(--olive);
+  border-color: var(--olive);
+  color: var(--paper-light);
+}
+.button.primary:hover {
+  background: #484a38;
+}
+.text-button,
+.subtle-link {
+  color: #555740;
+  font-size: 12px;
+}
+.badge {
+  background: #dbd4b7;
+  color: #42462f;
+  border-radius: 1px;
+}
+label {
+  color: #565341;
+  font-size: 12px;
+}
+input:not([type="checkbox"]),
+select,
+textarea {
+  background: var(--paper-light);
+  border-color: var(--line);
+  border-radius: 1px;
+  color: var(--ink);
+  font-size: 14px;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #847f68;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #8b895c;
+  outline-offset: 2px;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #9b995c;
+  outline-offset: 4px;
+}
+dialog {
+  background: var(--paper-light);
+  border-color: #948f75;
+  border-radius: 2px;
+  color: var(--ink);
+  padding: 32px;
+}
+dialog::backdrop {
+  background: #191d14aa;
+}
+.dialog-head h2 {
+  font: 24px/1.3 var(--display);
+}
+.icon-button {
+  color: var(--ink);
+}
+.icon-button:hover {
+  background: #ddd6b9;
+}
+.toast {
+  background: var(--olive);
+  color: var(--paper-light);
+  border-radius: 2px;
+}
+.notice {
+  background: #dfd8bb;
+  color: #5e5a42;
+  border-radius: 1px;
 }
 .reader {
-  max-width: 640px;
-  margin: 45px auto 0;
+  max-width: 720px;
+  margin: 55px auto 0;
+  padding: 0 25px;
 }
 .back-link {
-  font-size: 11px;
-  color: #757573;
   display: inline-block;
-  margin-bottom: 45px;
+  font:
+    11px "Courier New",
+    monospace;
+  margin-bottom: 40px;
+  color: var(--muted);
 }
-.reader .article-topic {
-  font-size: 10px;
-  color: #757573;
-  margin-bottom: 18px;
+.article-topic {
+  font:
+    11px "Courier New",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #717142;
+  margin-bottom: 22px;
 }
 .reader h1 {
-  font:
-    38px/1.18 Georgia,
-    serif;
-  letter-spacing: -0.6px;
-  color: #4e4e4c;
-  font-weight: 400;
-  margin-bottom: 24px;
+  font: clamp(32px, 3.8vw, 46px)/1.3 var(--display);
+  letter-spacing: -1px;
+  margin-bottom: 28px;
+  overflow-wrap: anywhere;
 }
-.reader .byline {
-  font-size: 10px;
-  color: #757573;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #e8eedf;
+.byline {
+  font:
+    11px/1.8 "Courier New",
+    monospace;
+  border-bottom: 3px double var(--line);
+  padding-bottom: 24px;
+  color: var(--muted);
 }
 .article-body {
   font:
-    17px/1.95 Georgia,
+    18px/1.9 Georgia,
     serif;
-  color: #71716f;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  margin-top: 32px;
+  margin-top: 34px;
+  color: #454336;
 }
-.reader .sample-label {
-  font-size: 10px;
-  color: #757573;
-}
-.reader #owner-actions {
+#owner-actions {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   padding: 25px 0;
 }
 .comments {
-  margin-top: 45px;
-  border-top: 1px solid #e1ead4;
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
   padding-top: 30px;
 }
 .comments-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 .comments-head h2 {
-  font:
-    20px Georgia,
-    serif;
-  color: #666664;
+  font: 25px Georgia;
   margin: 0;
 }
 .comments-head > span {
-  font-size: 10px;
-  color: #757573;
+  font-size: 11px;
+  color: var(--muted);
 }
 .comment {
-  border-bottom: 1px solid #e6edda;
-  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
 }
 .comment > header {
   display: flex;
   gap: 12px;
   align-items: center;
-  font-size: 11px;
-  color: #757573;
+  font-size: 12px;
 }
 .comment > header time {
-  font-size: 9px;
-  color: #757573;
+  font:
+    10px "Courier New",
+    monospace;
+  color: var(--muted);
 }
 .comment > header button {
   margin-left: auto;
-  font-size: 9px;
-  color: #757573;
+  font-size: 11px;
 }
 .comment > p {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #757573;
+  font: 15px/1.8 Georgia;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   margin: 12px 0 0;
@@ -290,24 +563,15 @@ body {
 .comments form {
   margin-top: 25px;
 }
-.comments textarea {
-  font-size: 12px;
-  background: white;
-  border-color: #e1ead4;
-}
-.comments .button {
-  font-size: 11px;
-}
 .comments .signin-prompt {
-  font-size: 12px;
-  color: #757573;
-  padding: 25px 0;
+  font-size: 13px;
+  padding: 20px 0;
 }
 .writing-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
-  gap: 65px;
-  padding-top: 50px;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 60px;
+  padding: 50px 64px 0;
 }
 .writing-heading {
   display: flex;
@@ -317,274 +581,332 @@ body {
   margin-bottom: 30px;
 }
 .writing-heading h1 {
-  font:
-    28px Georgia,
-    serif;
-  letter-spacing: -0.4px;
-  font-weight: 400;
+  font: 30px/1.35 var(--display);
+  letter-spacing: -0.8px;
   margin: 12px 0 0;
-  color: #60605e;
 }
 .writing-heading .label {
-  font-size: 10px;
-  color: #757573;
+  font:
+    10px "Courier New",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
 }
 .writing-heading .text-button {
-  font-size: 10px;
-}
-.writing-layout label {
-  font-size: 11px;
-  color: #757573;
-}
-.writing-layout input,
-.writing-layout select,
-.writing-layout textarea {
-  font-size: 13px;
-  border-color: #e2ebd6;
-  color: #5b5b59;
-}
-.writing-layout select {
-  max-width: 190px;
+  white-space: nowrap;
 }
 .writing-layout textarea {
   font:
-    16px/1.9 Georgia,
+    18px/1.8 Georgia,
     serif;
-  min-height: 340px;
+  min-height: 380px;
+}
+.writing-layout select {
+  max-width: 220px;
 }
 .writing-meta {
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
-  color: #757573;
-  margin-top: -6px;
+  font:
+    10px "Courier New",
+    monospace;
+  color: var(--muted);
+  margin-top: -5px;
 }
 .editor-buttons {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  border-top: 1px solid #e5eddc;
-  margin-top: 22px;
-  padding-top: 20px;
-}
-.editor-buttons .button {
-  font-size: 11px;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  margin-top: 25px;
+  padding-top: 23px;
 }
 .writing-sidebar {
-  padding: 12px 0 0 25px;
-  border-left: 1px solid #e7efdc;
+  border-left: 1px solid var(--line);
+  padding-left: 25px;
 }
 .writing-sidebar h2 {
-  font-size: 13px;
-  color: #6b6b69;
-  margin-bottom: 10px;
+  font: 25px Georgia;
 }
 .writing-sidebar > p {
-  font-size: 10px;
-  color: #757573;
+  font-size: 12px;
 }
 .my-post {
-  border-bottom: 1px solid #e6efda;
   padding: 20px 0;
+  border-bottom: 1px solid var(--line);
 }
 .my-post h3 {
-  font:
-    17px/1.4 Georgia,
-    serif;
-  font-weight: 400;
-  color: #757573;
-  margin-bottom: 10px;
+  font: 20px/1.4 Georgia;
   overflow-wrap: anywhere;
 }
 .my-post .row {
   justify-content: space-between;
   gap: 8px;
 }
-.my-post .text-button,
-.my-post a {
-  font-size: 9px;
-  color: #757573;
-}
-.my-post .badge {
-  font-size: 8px;
-}
 .my-post-controls {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
 }
-.editor-buttons .primary,
-.comments .primary {
-  background: #68795a;
-  border-color: #68795a;
-}
-.empty p {
-  font-size: 12px;
+.my-post a,
+.my-post .text-button {
+  font-size: 10px;
 }
 .empty {
-  padding: 45px 0;
+  color: var(--muted);
+  padding: 45px 15px;
 }
-@media (max-width: 950px) {
+.loading {
+  color: var(--muted);
+  font: 13px Georgia;
+}
+@media (min-width: 1441px) {
   .journal-shell {
-    padding: 0 30px;
-  }
-  .journal-layout {
-    gap: 45px;
-    grid-template-columns: minmax(0, 1fr) 180px;
-  }
-  .feed-tabs {
-    gap: 15px;
-  }
-  .article-row {
-    grid-template-columns: 55px 1fr;
-    gap: 20px;
-  }
-  .article-row h2 {
-    font-size: 21px;
-  }
-  .writing-layout {
-    gap: 35px;
-    grid-template-columns: minmax(0, 1fr) 190px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
   }
 }
-@media (max-width: 650px) {
-  .journal-shell {
-    padding: 0 24px;
-  }
+@media (max-width: 1000px) {
   .page-header {
-    height: 80px;
-    flex-wrap: nowrap;
-    padding: 0;
+    padding: 0 32px;
   }
-  .page-header nav {
-    gap: 20px;
+  .hero-content {
+    padding-left: 40px;
   }
-  .brand {
-    font-size: 25px;
+  .hero-bottom {
+    left: 40px;
+    right: 40px;
   }
-  .journal-intro {
-    padding: 40px 0 35px;
-  }
-  .journal-intro h1 {
-    font-size: 27px;
-  }
-  .journal-intro p {
-    font-size: 11px;
-    line-height: 1.8;
-    max-width: 260px;
+  .journal-entries {
+    padding: 45px 32px 0;
   }
   .journal-layout {
-    grid-template-columns: 1fr;
     gap: 35px;
-  }
-  .journal-about {
-    display: none;
+    grid-template-columns: minmax(0, 1fr) 220px;
   }
   .feed-tools {
     flex-wrap: wrap;
     gap: 12px;
   }
-  .feed-tabs {
-    gap: 20px;
-    width: 100%;
-  }
-  .feed-tabs button {
-    font-size: 10px;
-  }
   .search-box {
     width: 100%;
   }
   .search-box input {
-    max-width: 100%;
     width: 100%;
-    font-size: 11px;
-  }
-  .article-row {
-    padding: 25px 0;
-    grid-template-columns: 48px 1fr;
-    gap: 15px;
-  }
-  .article-date {
-    font-size: 9px;
-  }
-  .article-row h2 {
-    font-size: 20px;
-  }
-  .article-row p {
-    font-size: 11px;
-    line-height: 1.85;
-  }
-  .article-meta {
-    font-size: 8px;
-    flex-wrap: wrap;
-    gap: 6px;
   }
   .journal-shell > footer {
-    margin-top: 45px;
+    padding: 28px 32px;
+  }
+  .writing-layout {
+    padding: 40px 32px 0;
+    gap: 30px;
+    grid-template-columns: minmax(0, 1fr) 200px;
+  }
+  .writing-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+  .writing-sidebar {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .page-header {
+    height: auto;
+    min-height: 108px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 18px 20px;
+  }
+  .brand {
+    font-size: 25px;
+  }
+  .brand span {
+    display: none;
+  }
+  .page-header nav {
+    gap: 28px;
+    font-size: 11px;
+  }
+  .page-header .text-button {
+    font-size: 11px;
+    padding: 5px 0;
+  }
+  .page-header nav a {
+    padding: 5px 0;
+  }
+  .journal-intro {
+    height: 470px;
+  }
+  .hero-photo {
+    object-position: 53% 65%;
+    filter: sepia(0.9) saturate(0.55) brightness(0.53);
+  }
+  .hero-content {
+    padding: 55px 22px 0;
+  }
+  .hero-content .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    margin-bottom: 24px;
+  }
+  .journal-intro h1 {
+    font-size: clamp(40px, 12vw, 70px);
+    letter-spacing: -1.5px;
+    line-height: 1.25;
+    margin-bottom: 25px;
+  }
+  .hero-description {
+    font-size: 18px;
+  }
+  .hero-link {
+    font-size: 12px;
+    gap: 25px;
+  }
+  .hero-bottom {
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
     font-size: 8px;
+    letter-spacing: 0.8px;
   }
-  .reader {
-    margin-top: 30px;
+  .hero-bottom span:last-child {
+    display: none;
   }
-  .back-link {
-    margin-bottom: 32px;
+  .journal-entries {
+    padding: 35px 22px 0;
+  }
+  .section-heading {
+    padding-bottom: 21px;
+    margin-bottom: 20px;
+  }
+  .section-heading h2 {
+    font-size: 25px;
+  }
+  .section-heading .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  .section-mark {
+    font-size: 30px;
+  }
+  .journal-layout {
+    display: block;
+  }
+  .feed-tabs {
+    gap: 18px;
+  }
+  .feed-tabs button {
+    font-size: 10px;
+    min-height: 40px;
+  }
+  .article-row {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 17px;
+    padding: 28px 0;
+  }
+  .article-date {
     font-size: 10px;
   }
+  .article-row h2 {
+    font-size: 25px;
+  }
+  .article-row p {
+    font-size: 15px;
+  }
+  .article-meta {
+    font-size: 9px;
+    gap: 7px;
+  }
+  .journal-about {
+    margin-top: 35px;
+    padding: 28px;
+  }
+  .journal-about h2 br {
+    display: none;
+  }
+  .journal-about .button {
+    width: auto;
+  }
+  .aside-divider {
+    margin: 25px 0;
+  }
+  .journal-about p {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .journal-shell > footer {
+    padding: 25px 22px;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 40px;
+    font-size: 10px;
+  }
+  .footer-brand {
+    width: 100%;
+    font-size: 21px;
+  }
+  .reader {
+    margin-top: 35px;
+    padding: 0 22px;
+  }
   .reader h1 {
-    font-size: 31px;
+    font-size: 30px;
+    letter-spacing: -0.5px;
   }
   .article-body {
-    font-size: 16px;
-    line-height: 1.95;
+    font-size: 17px;
   }
-  .comments {
-    margin-top: 30px;
+  .back-link {
+    margin-bottom: 30px;
   }
   .writing-layout {
     display: block;
-    padding-top: 35px;
+    padding: 35px 22px 0;
   }
   .writing-heading h1 {
-    font-size: 26px;
+    font-size: 27px;
   }
+  .writing-layout input,
+  .writing-layout select,
   .writing-layout textarea {
     font-size: 16px;
   }
   .writing-sidebar {
+    margin-top: 35px;
     border: 0;
-    border-top: 1px solid #e0ead1;
-    margin-top: 40px;
-    padding: 25px 0;
+    border-top: 1px solid var(--line);
+    padding: 30px 0 0;
   }
-  .my-post h3 {
-    font-size: 18px;
+  .writing-heading {
+    flex-direction: row;
+    align-items: center;
   }
-  .writing-sidebar h2 {
-    font-size: 14px;
+  .writing-heading .text-button {
+    white-space: normal;
+    max-width: 60px;
+    text-align: right;
   }
-  .comments .signin-prompt {
+  .editor-buttons {
+    gap: 10px;
+  }
+  .editor-buttons .button {
     font-size: 11px;
+    padding: 11px 14px;
   }
-}
-
-@media (min-width: 651px) {
-  .article-row p {
-    font-size: 13px;
+  .comments-head h2 {
+    font-size: 23px;
   }
-  .journal-intro p {
-    font-size: 13px;
+  dialog {
+    padding: 24px;
   }
-  .journal-about p {
-    font-size: 12px;
+  .dialog-head h2 {
+    font-size: 21px;
   }
-  .article-meta {
-    font-size: 10px;
-  }
-  .feed-tabs button {
-    font-size: 11px;
-  }
-  .page-header nav a,
-  .page-header .text-button {
-    font-size: 12px;
+  .hero-link {
+    min-height: 44px;
   }
 }
